@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>Get Products from DB</title>
+		<link href="style.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<form method="POST" action="#">
+			<fieldset>
+				<h1>Get Products from DB</h1>
+			</fieldset>
+			<fieldset>
+				<legend>Product Attributes</legend>
+					<h2>Id Product: <input type="number" name="id_product" step="1" title="Insert the product Id" autofocus></h2>
+					<h2>Name: <input type="text" name="name" title="Insert the product name"></h2>
+					<h2>Imported: Yes<input type="checkbox" value="true" name="is_imported[]" > No<input type="checkbox" value="false" name="is_imported[]"></h2>
+					<h2>Price: <input type="number" name="price" step="0.01" title="Insert the product price"></h2>
+					<h2>Category: <select name="category">
+									<option value="ALL">ALL</option>
+									<option value="FOOD">FOOD</option>
+									<option value="BOOK">BOOK</option>
+									<option value="MEDICINE">MEDICINE</option>
+									<option value="GENERAL">GENERAL</option>
+									<option value="NOT_GENERAL">NOT_GENERAL</option>
+								  </select></h2>
+			</fieldset>
+			<fieldset>
+				<legend>Choose an action</legend>
+					<input type="submit" value="GET PRODUCTS">
+					<input type="reset" value="RESET">
+			</fieldset>
+		</form>
+	</body>
+</html>
