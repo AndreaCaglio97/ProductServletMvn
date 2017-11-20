@@ -11,6 +11,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
 
 import static org.mycompany.myname.database.DBManager.*;
 
@@ -33,7 +37,8 @@ public class HelloServlet extends HttpServlet {
         Category category = Category.valueOf(request.getParameter("category"));
         Product product = new Product(name,isImported,price,category,1);
 
-        //insertSingleProductToDB(product);
+        insertSingleProductToDB(product);
+
 
         // do some processing here...
 

@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="My web app" />
+        <module name="ProductServletMvn" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="My web app" target="1.8" />
+      <module name="ProductServletMvn" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
