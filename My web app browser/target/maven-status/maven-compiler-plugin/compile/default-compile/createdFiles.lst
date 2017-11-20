@@ -1,0 +1,6 @@
+org\mycompany\myname\models\Product.class
+org\mycompany\myname\database\ConnectionManager.class
+org\mycompany\myname\database\DBManager.class
+org\mycompany\myname\HelloServlet.class
+org\mycompany\myname\utilities\Rounding.class
+org\mycompany\myname\models\Category.class
