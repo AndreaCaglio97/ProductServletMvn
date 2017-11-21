@@ -24,15 +24,18 @@ public class GetProductServlet extends HttpServlet {
 
         System.out.println("Inside doPost");
 
-        // read form fields
-        if(request.getParameter("name").equals("")) {
-            System.out.println("Stringa vuota");
+        String[] attributes = new String[6];
+
+        attributes[0] = request.getParameter("id_product");
+        attributes[1] = request.getParameter("name");
+        attributes[2] = request.getParameter("is_imported");
+        attributes[3] = request.getParameter("minimum_price");
+        attributes[4] = request.getParameter("maximum_price");
+        attributes[5] = request.getParameter("category");
+
+        for(String c : attributes) {
+            System.out.println(c);
         }
-        String name = request.getParameter("name");
-        //boolean isImported = Boolean.parseBoolean(request.getParameter("is_imported"));
-        //double price = Double.parseDouble(request.getParameter("price"));
-        //Category category = Category.valueOf(request.getParameter("category"));
-        //Product product = new Product(name,isImported,price,category,1);
 
 
 
@@ -42,12 +45,12 @@ public class GetProductServlet extends HttpServlet {
         PrintWriter writer = response.getWriter();
 
         // build HTML code
-        String htmlRespone = "<html>";
-        htmlRespone += "<h2>Get Product<br/>";
-        htmlRespone += "</html>";
+        String htmlResponse = "<html>";
+        htmlResponse += "<h2>Get Product<br/>";
+        htmlResponse += "</html>";
 
         // return response
-        writer.println(htmlRespone);
+        writer.println(htmlResponse);
 
     }
 }

@@ -36,6 +36,44 @@ public class DBManager {
         }
     }
 
+    public static void productList(String[] attributes) {
+        ConnectionManager connManager = ConnectionManager.getConnectionSingleton();
+        Statement stmt = connManager.createStatement();
+        String idProductString = "";
+        String importedString = "";
+        String categoryString = "";
+
+        if(!attributes[1].equals("")) {
+            idProductString = "id_product = " + attributes[1] + " and\n";
+        }
+
+        if(!attributes[2].equals("all")) {
+            importedString = "and is_imported = " + attributes[2] + "\n";
+        }
+
+        if(!attributes[5].equals("ALL")) {
+            categoryString = "and category = " + attributes[5] + "\n";
+        }
+
+        String query = "SELECT  *\n" +
+                "FROM product\n" +
+                "WHERE is_imported = true\n " +
+                "ORDER BY id_product";
+        try {
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                String name = rs.getString("name");
+                double price = rs.getDouble("price");
+                Category category =  Category.valueOf(rs.getString("category"));
+                System.out.println(name + "\t" + price + "\t" + category);
+            }
+        } catch (SQLException e ) {
+            System.out.println("ERROR! query NOT successfully completed");
+        } finally {
+            SQLExceptionHandling(stmt);
+        }
+    }
+
     public static Product productFromDB(int id_product)  {
         ConnectionManager connManager = ConnectionManager.getConnectionSingleton();
         Statement stmt = connManager.createStatement();
