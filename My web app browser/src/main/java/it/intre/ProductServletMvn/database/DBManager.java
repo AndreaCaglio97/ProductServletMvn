@@ -11,6 +11,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
+import static it.intre.ProductServletMvn.database.AttributeManager.*;
+
 public class DBManager {
 
     public static void viewTable(Connection conn)  {
@@ -36,42 +38,45 @@ public class DBManager {
         }
     }
 
-    public static void productList(String[] attributes) {
+    public static String productList(String[] attributes) {
         ConnectionManager connManager = ConnectionManager.getConnectionSingleton();
         Statement stmt = connManager.createStatement();
-        String idProductString = "";
-        String importedString = "";
-        String categoryString = "";
-
-        if(!attributes[1].equals("")) {
-            idProductString = "id_product = " + attributes[1] + " and\n";
-        }
-
-        if(!attributes[2].equals("all")) {
-            importedString = "and is_imported = " + attributes[2] + "\n";
-        }
-
-        if(!attributes[5].equals("ALL")) {
-            categoryString = "and category = " + attributes[5] + "\n";
-        }
+        String idProductString = checkIdProductString(attributes[0]);
+        String isImportedString = checkIsImportedString(attributes[2]);
+        String minimumPriceString = checkMinimumPriceString(attributes[3]);
+        String maximumPriceString = checkMaximumPriceString(attributes[4]);
+        String categoryString = checkCategoryString(attributes[5]);
+        String htmlResponse = "";
 
         String query = "SELECT  *\n" +
                 "FROM product\n" +
-                "WHERE is_imported = true\n " +
+                "WHERE " + idProductString + "name like '%" + attributes[1] + "%'" + isImportedString + minimumPriceString + maximumPriceString + categoryString +
                 "ORDER BY id_product";
         try {
             ResultSet rs = stmt.executeQuery(query);
+            htmlResponse += "<html>" +
+                           "<table>";
             while (rs.next()) {
-                String name = rs.getString("name");
-                double price = rs.getDouble("price");
-                Category category =  Category.valueOf(rs.getString("category"));
-                System.out.println(name + "\t" + price + "\t" + category);
+                htmlResponse += "<tr>";
+                htmlResponse += "<td>" + rs.getInt("id_product") + "</td>";
+                htmlResponse += "<td>" + rs.getString("name") + "</td>";
+                htmlResponse += "<td>" + rs.getBoolean("is_imported") + "</td>";
+                htmlResponse += "<td>" + rs.getDouble("price") + "</td>";
+                htmlResponse += "<td>" + Category.valueOf(rs.getString("category")) + "</td>";
+                htmlResponse += "</tr>";
             }
+            htmlResponse += "</table>" +
+                            "</html>";
         } catch (SQLException e ) {
             System.out.println("ERROR! query NOT successfully completed");
         } finally {
             SQLExceptionHandling(stmt);
+            return htmlResponse;
         }
+    }
+
+    public static String tableGenerator() {
+        return "";
     }
 
     public static Product productFromDB(int id_product)  {

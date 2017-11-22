@@ -1,5 +1,0 @@
-0:0:0:0:0:0:0:1 - - [21/Nov/2017:12:27:46 +0100] "GET / HTTP/1.1" 200 261 http-bio-8888-exec-1 952
-0:0:0:0:0:0:0:1 - - [21/Nov/2017:12:27:48 +0100] "GET /insertProduct.html HTTP/1.1" 304 - http-bio-8888-exec-2 6
-0:0:0:0:0:0:0:1 - - [21/Nov/2017:12:27:54 +0100] "POST /servlet HTTP/1.1" 200 101 http-bio-8888-exec-3 151
-0:0:0:0:0:0:0:1 - - [21/Nov/2017:12:28:02 +0100] "GET /getProduct.html HTTP/1.1" 304 - http-bio-8888-exec-4 3
-0:0:0:0:0:0:0:1 - - [21/Nov/2017:12:28:03 +0100] "POST /GetProductServlet HTTP/1.1" 200 35 http-bio-8888-exec-6 3

@@ -1,8 +1,5 @@
 package it.intre.ProductServletMvn;
 
-/**
- * Created by anon on 1/10/2017.
- */
 
 import it.intre.ProductServletMvn.models.Category;
 import it.intre.ProductServletMvn.models.Product;

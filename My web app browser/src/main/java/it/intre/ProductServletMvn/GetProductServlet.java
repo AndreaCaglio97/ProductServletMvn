@@ -1,16 +1,16 @@
 package it.intre.ProductServletMvn;
 
-/**
- * Created by anon on 1/10/2017.
- */
 
 import it.intre.ProductServletMvn.models.Category;
 import it.intre.ProductServletMvn.models.Product;
+import it.intre.ProductServletMvn.models.TableRow;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+
+import static it.intre.ProductServletMvn.database.DBManager.*;
 
 public class GetProductServlet extends HttpServlet {
     public void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse)
@@ -23,6 +23,13 @@ public class GetProductServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         System.out.println("Inside doPost");
+
+        /*TableRow tableRow = new TableRow();
+
+        tableRow.setIdProduct(Integer.parseInt(request.getParameter("id_product")));*/
+
+
+
 
         String[] attributes = new String[6];
 
@@ -45,9 +52,7 @@ public class GetProductServlet extends HttpServlet {
         PrintWriter writer = response.getWriter();
 
         // build HTML code
-        String htmlResponse = "<html>";
-        htmlResponse += "<h2>Get Product<br/>";
-        htmlResponse += "</html>";
+        String htmlResponse = productList(attributes);
 
         // return response
         writer.println(htmlResponse);
