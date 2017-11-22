@@ -1,10 +1,8 @@
 it\intre\ProductServletMvn\database\AttributeManager.class
-it\intre\ProductServletMvn\models\ImportType.class
 it\intre\ProductServletMvn\database\DBManager.class
 it\intre\ProductServletMvn\InsertProductServlet.class
 it\intre\ProductServletMvn\utilities\Rounding.class
 it\intre\ProductServletMvn\models\Product.class
-it\intre\ProductServletMvn\models\TableRow.class
 it\intre\ProductServletMvn\database\ConnectionManager.class
 it\intre\ProductServletMvn\GetProductServlet.class
 it\intre\ProductServletMvn\models\Category.class

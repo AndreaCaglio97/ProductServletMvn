@@ -2,9 +2,10 @@
 	<head>
 		<title>Get Products from DB</title>
 		<link href="style.css" rel="stylesheet" type="text/css">
+		<script src="checkField.js"></script>
 	</head>
 	<body>
-		<form method="POST" action="/GetProductServlet">
+		<form method="POST" name="Form" onsubmit="return checkPrice()" action="/GetProductServlet">
 			<fieldset>
 				<h1>Get Products from DB</h1>
 			</fieldset>

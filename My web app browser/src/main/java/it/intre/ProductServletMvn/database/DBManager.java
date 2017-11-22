@@ -46,16 +46,21 @@ public class DBManager {
         String minimumPriceString = checkMinimumPriceString(attributes[3]);
         String maximumPriceString = checkMaximumPriceString(attributes[4]);
         String categoryString = checkCategoryString(attributes[5]);
-        String htmlResponse = "";
 
         String query = "SELECT  *\n" +
                 "FROM product\n" +
                 "WHERE " + idProductString + "name like '%" + attributes[1] + "%'" + isImportedString + minimumPriceString + maximumPriceString + categoryString +
                 "ORDER BY id_product";
+
+        return tableGenerator(stmt,query);
+    }
+
+    public static String tableGenerator(Statement stmt, String query) {
+        String htmlResponse = "";
         try {
             ResultSet rs = stmt.executeQuery(query);
             htmlResponse += "<html>" +
-                           "<table>";
+                    "<table>";
             while (rs.next()) {
                 htmlResponse += "<tr>";
                 htmlResponse += "<td>" + rs.getInt("id_product") + "</td>";
@@ -66,17 +71,13 @@ public class DBManager {
                 htmlResponse += "</tr>";
             }
             htmlResponse += "</table>" +
-                            "</html>";
+                    "</html>";
         } catch (SQLException e ) {
             System.out.println("ERROR! query NOT successfully completed");
         } finally {
             SQLExceptionHandling(stmt);
             return htmlResponse;
         }
-    }
-
-    public static String tableGenerator() {
-        return "";
     }
 
     public static Product productFromDB(int id_product)  {

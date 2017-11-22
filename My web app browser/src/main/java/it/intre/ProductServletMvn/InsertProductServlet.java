@@ -12,12 +12,6 @@ import java.io.PrintWriter;
 import static it.intre.ProductServletMvn.database.DBManager.*;
 
 public class InsertProductServlet extends HttpServlet {
-    public void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse)
-            throws IOException {
-        httpServletResponse.getWriter().print("Hello from servlet");
-    }
-
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -32,8 +26,6 @@ public class InsertProductServlet extends HttpServlet {
 
         insertSingleProductToDB(product);
 
-
-        // do some processing here...
 
         // get response writer
         PrintWriter writer = response.getWriter();
