@@ -31,13 +31,30 @@ public class InsertProductServlet extends HttpServlet {
         PrintWriter writer = response.getWriter();
 
         // build HTML code
-        String htmlResponse = "<html>";
-        htmlResponse += "<h2>New Product:<br/>";
-        htmlResponse += "Name: " + name + "<br/>";
-        htmlResponse += "Imported: " + isImported + "<br/>";
-        htmlResponse += "Price: " + price + "<br/>";
-        htmlResponse += "category: " + category + "</h2>";
-        htmlResponse += "</html>";
+        String htmlResponse = "<html>" +
+                "<head>" +
+                "   <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css\"> " +
+                "   <link href=\"table.css\" rel=\"stylesheet\" type=\"text/css\">" +
+                "</head>" +
+                "<body>" +
+                "<h1>New Product in DB</h1>" +
+                "<table class=\"responstable\">" +
+                "<tr>\n" +
+                "    <th>Name</th>\n" +
+                "    <th data-th=\"Product details\"><span>Is Imported</span></th>\n" +
+                "    <th>Price</th>\n" +
+                "    <th>Category</th>\n" +
+                "</tr>";
+        htmlResponse += "<tr>";
+        htmlResponse += "<td>" + name + "</td>";
+        htmlResponse += "<td>" + isImported + "</td>";
+        htmlResponse += "<td>" + price + "</td>";
+        htmlResponse += "<td>" + category + "</td>";
+        htmlResponse += "</tr>";
+        htmlResponse += "</table>" +
+                "<script src='http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script>" +
+                "</body>" +
+                "</html>";
 
         // return response
         writer.println(htmlResponse);

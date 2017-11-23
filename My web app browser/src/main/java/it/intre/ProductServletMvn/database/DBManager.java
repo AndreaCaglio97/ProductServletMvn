@@ -60,7 +60,19 @@ public class DBManager {
         try {
             ResultSet rs = stmt.executeQuery(query);
             htmlResponse += "<html>" +
-                    "<table>";
+                    "<head>" +
+                    "   <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css\"> " +
+                    "   <link href=\"table.css\" rel=\"stylesheet\" type=\"text/css\">" +
+                    "</head>" +
+                    "<body>" +
+                    "<table class=\"responstable\">" +
+                    "<tr>\n" +
+                    "    <th>Id Product</th>\n" +
+                    "    <th data-th=\"Product details\"><span>Name</span></th>\n" +
+                    "    <th>Is Imported</th>\n" +
+                    "    <th>Price</th>\n" +
+                    "    <th>Category</th>\n" +
+                    "</tr>";
             while (rs.next()) {
                 htmlResponse += "<tr>";
                 htmlResponse += "<td>" + rs.getInt("id_product") + "</td>";
@@ -71,6 +83,8 @@ public class DBManager {
                 htmlResponse += "</tr>";
             }
             htmlResponse += "</table>" +
+                    "<script src='http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script>" +
+                    "</body>" +
                     "</html>";
         } catch (SQLException e ) {
             System.out.println("ERROR! query NOT successfully completed");
