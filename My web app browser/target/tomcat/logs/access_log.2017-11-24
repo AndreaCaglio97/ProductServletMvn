@@ -1,6 +1,0 @@
-0:0:0:0:0:0:0:1 - - [24/Nov/2017:12:28:05 +0100] "GET / HTTP/1.1" 200 1844 http-bio-8888-exec-3 990
-0:0:0:0:0:0:0:1 - - [24/Nov/2017:12:28:12 +0100] "GET /insertProduct.html? HTTP/1.1" 304 - http-bio-8888-exec-4 8
-0:0:0:0:0:0:0:1 - - [24/Nov/2017:12:28:20 +0100] "POST /servlet HTTP/1.1" 200 548 http-bio-8888-exec-5 151
-0:0:0:0:0:0:0:1 - - [24/Nov/2017:12:28:26 +0100] "GET /getProduct.html? HTTP/1.1" 304 - http-bio-8888-exec-6 5
-0:0:0:0:0:0:0:1 - - [24/Nov/2017:12:28:26 +0100] "GET /checkMinMaxPrice.js HTTP/1.1" 304 - http-bio-8888-exec-9 6
-0:0:0:0:0:0:0:1 - - [24/Nov/2017:12:28:28 +0100] "POST /GetProductServlet HTTP/1.1" 200 5467 http-bio-8888-exec-10 46
